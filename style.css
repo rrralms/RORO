@@ -1,0 +1,141 @@
+
+body {
+  background: #ffeaf4;
+  font-family: 'Great Vibes', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.envelope-container {
+  position: relative;
+  text-align: center;
+}
+
+.envelope {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background: #f26b7a;
+  margin: auto;
+  transition: all 0.5s ease-in-out;
+}
+
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100px;
+  background: #d95766;
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  transform-origin: top;
+  transition: transform 0.5s ease-in-out;
+}
+
+
+
+
+.letter {
+  font-family: 'Dancing Script', cursive;
+  font-size: 22px;
+  color: #4B2E2E;
+  padding: 20px;
+  line-height: 1.5;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  background-color: #fffaf7;
+  border-radius: 10px;
+  max-width: 90%;
+  max-height: 250px;
+  overflow-y: auto;
+  margin: auto;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  pointer-events: none;
+}
+
+.letter.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+
+.buttons {
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  background-color: #f26b7a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.heart-container {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.heart {
+  width: 20px;
+  height: 20px;
+  background: white;
+  position: absolute;
+  transform: rotate(45deg);
+  animation: floatUp 3s ease-in-out infinite;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+.heart::after {
+  left: -10px;
+  top: 0;
+}
+
+.heart.delay1 {
+  left: 30px;
+  animation-delay: 0.5s;
+}
+
+.heart.delay2 {
+  left: -30px;
+  animation-delay: 1s;
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-50px) scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) scale(0.8);
+  }
+}
